@@ -190,7 +190,7 @@ jobs:
 
       - name: Run provider research
         timeout-minutes: 55
-        uses: anthropics/claude-code-action@f27be6b65a4652f08a2ba3cff79114829b588967 # v1.0.252
+        uses: anthropics/claude-code-action@e4a6faad497d33dbc7144135c75e41f82f0bf6c0 # v1.0.255
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           # Researcher launches must block until the researcher returns
@@ -338,7 +338,7 @@ jobs:
 
       - name: Author the digest
         timeout-minutes: 20
-        uses: anthropics/claude-code-action@f27be6b65a4652f08a2ba3cff79114829b588967 # v1.0.252
+        uses: anthropics/claude-code-action@e4a6faad497d33dbc7144135c75e41f82f0bf6c0 # v1.0.255
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ steps.app-token.outputs.token }}
