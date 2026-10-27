@@ -23,8 +23,6 @@ from pipecat.services.groq.stt import GroqSTTService
 from pipecat.services.kokoro.tts import KokoroTTSService
 from pipecat.services.simli.video import SimliVideoService
 from pipecat.transports.base_transport import BaseTransport, TransportParams
-from pipecat.transports.daily.transport import DailyParams
-from pipecat.transports.livekit.transport import LiveKitParams
 from pipecat.transports.websocket.fastapi import FastAPIWebsocketParams
 from pipecat.workers.runner import WorkerRunner
 
@@ -32,16 +30,6 @@ load_dotenv(override=True)
 
 transport_params = {
     "eval": lambda: EvalTransportParams(audio_in_enabled=True, audio_out_enabled=True),
-    "daily": lambda: DailyParams(
-        audio_in_enabled=True,
-        audio_out_enabled=True,
-        video_in_enabled=True,
-        video_out_enabled=True,
-        video_out_is_live=True,
-        video_out_width=512,
-        video_out_height=512,
-    ),
-    "livekit": lambda: LiveKitParams(audio_in_enabled=True, audio_out_enabled=True),
     "twilio": lambda: FastAPIWebsocketParams(audio_in_enabled=True, audio_out_enabled=True),
     "webrtc": lambda: TransportParams(
         audio_in_enabled=True,
